@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.facedemo.FaceRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.emoji.FaceRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/FaceRelativeLayout"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content" >
 
     <RelativeLayout
-        android:id="@+id/rl_input"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/chat_footer_bg" >
+        android:id="@+id/pic_content"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_pic_edit"
+        android:paddingTop="8dp" >
+
+        <View
+            android:id="@+id/view_helper"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="8dp"
+            android:background="#00000000" />
 
         <ImageButton
             android:id="@+id/btn_face"
@@ -19,36 +29,74 @@
             android:layout_marginLeft="8dip"
             android:background="@drawable/chat_send_btn"
             android:src="@drawable/ib_face" />
+        
 
-        <Button
-            android:id="@+id/btn_send"
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/chat_send_btn"
-            android:text="发送" />
+        <LinearLayout
+            android:id="@+id/open_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@id/view_helper"
+            android:background="@drawable/selector_edit_pic"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp" >
 
-        <EditText
-            android:id="@+id/et_sendmessage"
-            android:layout_width="fill_parent"
-            android:layout_height="40dp"
-            android:layout_centerVertical="true"
+            <ImageView
+                android:id="@+id/open_pic"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/open_picture"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:id="@+id/open_pic_tips"
+                style="@style/TextTheme.tipstheme_second"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dip"
+                android:gravity="center"
+                android:text="添加图片" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/take_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginRight="10dp"
-            android:layout_toLeftOf="@id/btn_send"
-            android:layout_toRightOf="@id/btn_face"
-            android:background="@drawable/login_edit_normal"
-            android:singleLine="true"
-            android:textSize="18sp" />
+            android:layout_toRightOf="@id/view_helper"
+            android:background="@drawable/selector_edit_pic"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp" >
+
+            <ImageView
+                android:id="@+id/take_pic"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/take_picture"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:id="@+id/take_pic_tips"
+                style="@style/TextTheme.tipstheme_second"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dip"
+                android:gravity="center"
+                android:text="拍照添加" />
+        </LinearLayout>
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/ll_facechoose"
         android:layout_width="fill_parent"
         android:layout_height="124dip"
-        android:layout_below="@id/rl_input"
+        android:layout_below="@id/pic_content"
         android:background="#f6f5f5"
         android:visibility="gone" >
 
@@ -69,4 +117,4 @@
         </LinearLayout>
     </RelativeLayout>
 
-</com.example.facedemo.FaceRelativeLayout>
+</com.example.emoji.FaceRelativeLayout>

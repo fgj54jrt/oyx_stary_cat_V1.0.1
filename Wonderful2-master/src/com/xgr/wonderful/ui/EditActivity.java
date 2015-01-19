@@ -49,6 +49,7 @@ import com.amap.api.location.AMapLocationListener;
 import com.amap.api.location.LocationManagerProxy;
 import com.amap.api.location.LocationProviderProxy;
 import com.amap.api.location.core.GeoPoint;
+import com.example.emoji.FaceConversionUtil;
 import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.Action;
 import com.xgr.wonderful.R;
@@ -101,6 +102,12 @@ public class EditActivity extends BasePageActivity implements OnClickListener,
 		// TODO Auto-generated method stub
 		setContentView(R.layout.activity_edit);
 		initLocation();
+		new Thread(new Runnable() {
+            @Override
+            public void run() {
+                FaceConversionUtil.getInstace().getFileText(getApplication());
+            }
+        }).start();
 	}
 
 	/**
