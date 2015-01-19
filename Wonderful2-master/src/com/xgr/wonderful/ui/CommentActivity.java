@@ -168,7 +168,7 @@ public class CommentActivity extends BasePageActivity implements
 		}
 		userName.setText(qiangYu.getAuthor().getUsername());
 		commentItemContent.setText(qiangYu.getContent());
-		if (null == qiangYu.getContentfigureurl()) {
+		if (0 == qiangYu.getContentfigureurl().size()) {
 			commentItemImage.setVisibility(View.GONE);
 		} else {
 			commentItemImage.setVisibility(View.VISIBLE);
@@ -607,7 +607,7 @@ public class CommentActivity extends BasePageActivity implements
 		String title = getString(R.string.oyx_comment_beautiful);
 		String comment = getString(R.string.oyx_comment_scenery);
 		String img = null;
-		if (qy.getContentfigureurl() != null) {
+		if (qy.getContentfigureurl().size() != 0) {
 			img = qy.getContentfigureurl().get(0).getFileUrl();
 		} else {
 			img = "http://www.codenow.cn/appwebsite/website/yyquan/uploads/53af6851d5d72.png";

@@ -13,6 +13,7 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -133,12 +134,12 @@ public class FaceRelativeLayout extends RelativeLayout implements
 				view.clearAnimation();
 			}
 			break;
-//		case R.id.et_sendmessage:
-//			// 隐藏表情选择框
-//			if (view.getVisibility() == View.VISIBLE) {
-//				view.setVisibility(View.GONE);
-//			}
-//			break;
+		case R.id.edit_content:
+			// 隐藏表情选择框
+			if (view.getVisibility() == View.VISIBLE) {
+				view.setVisibility(View.GONE);
+			}
+			break;
 
 		}
 	}
@@ -160,9 +161,9 @@ public class FaceRelativeLayout extends RelativeLayout implements
 	 */
 	private void Init_View() {
 		vp_face = (ViewPager) findViewById(R.id.vp_contains);
-//		et_sendmessage = (EditText) findViewById(R.id.et_sendmessage);
+		et_sendmessage = (EditText) findViewById(R.id.edit_content);
 		layout_point = (LinearLayout) findViewById(R.id.iv_image);
-//		et_sendmessage.setOnClickListener(this);
+		et_sendmessage.setOnClickListener(this);
 		findViewById(R.id.btn_face).setOnClickListener(this);
 		view = findViewById(R.id.ll_facechoose);
 
@@ -315,6 +316,7 @@ public class FaceRelativeLayout extends RelativeLayout implements
 			SpannableString spannableString = FaceConversionUtil.getInstace()
 					.addFace(getContext(), emoji.getId(), emoji.getCharacter());
 			et_sendmessage.append(spannableString);
+			Log.w("oyx","et_sendmessage = "+et_sendmessage.getText().toString());
 		}
 
 	}

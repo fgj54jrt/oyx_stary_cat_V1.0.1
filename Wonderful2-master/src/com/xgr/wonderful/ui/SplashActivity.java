@@ -4,6 +4,7 @@ package com.xgr.wonderful.ui;
 //import net.youmi.android.offers.OffersManager;
 import cn.bmob.v3.Bmob;
 
+import com.example.emoji.FaceConversionUtil;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.fb.FeedbackAgent;
 import com.umeng.message.PushAgent;
@@ -52,7 +53,13 @@ public class SplashActivity extends BaseActivity {
 			PushAgent mPushAgent = PushAgent.getInstance(mContext);
 			mPushAgent.disable();
 		}
-
+		//初始化表情添加
+				new Thread(new Runnable() {
+		            @Override
+		            public void run() {
+		                FaceConversionUtil.getInstace().getFileText(getApplication());
+		            }
+		        }).start();
 //		AdManager.getInstance(mContext).init("67daabfc8ffec9c7",
 //				"7748a02fe32d6532", false);
 //		OffersManager.getInstance(mContext);

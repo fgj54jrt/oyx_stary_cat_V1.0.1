@@ -100,15 +100,9 @@ public class EditActivity extends BasePageActivity implements OnClickListener,
 	@Override
 	protected void setLayoutView() {
 		// TODO Auto-generated method stub
-		new Thread(new Runnable() {
-            @Override
-            public void run() {
-                FaceConversionUtil.getInstace().getFileText(getApplication());
-            }
-        }).start();
-		setContentView(R.layout.activity_edit);
-		initLocation();
 		
+		setContentView(R.layout.activity_edit);
+		initLocation();		
 	}
 
 	/**
@@ -185,12 +179,13 @@ public class EditActivity extends BasePageActivity implements OnClickListener,
 			public void performAction(View view) {
 				// TODO Auto-generated method stub
 				commitContent = content.getText().toString().trim();
+				Log.w("oyx","commitContent = "+commitContent);
 				if (TextUtils.isEmpty(commitContent)) {
 					ActivityUtil.show(mContext,
 							getString(R.string.oyx_edit_cant_be_null));
 					return;
 				}
-				if (targeturl == null) {
+				if (targeturl.size() == 0) {
 					publishWithoutFigure(commitContent, null);
 				} else {
 					publish();

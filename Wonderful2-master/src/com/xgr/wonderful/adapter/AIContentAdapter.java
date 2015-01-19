@@ -142,7 +142,7 @@ public class AIContentAdapter extends BaseContentAdapter<QiangYu> {
 		});
 		viewHolder.userName.setText(entity.getAuthor().getUsername());
 		viewHolder.contentText.setText(entity.getContent());
-		if (null == entity.getContentfigureurl()) {
+		if (0 == entity.getContentfigureurl().size()) {
 			viewHolder.contentImage.setVisibility(View.GONE);
 		} else {
 			viewHolder.contentImage.setVisibility(View.VISIBLE);
@@ -150,7 +150,8 @@ public class AIContentAdapter extends BaseContentAdapter<QiangYu> {
 					.getInstance()
 					.displayImage(
 							entity.getContentfigureurl().get(0).getFileUrl() == null ? ""
-									: entity.getContentfigureurl(). get(0).getFileUrl(),
+									: entity.getContentfigureurl().get(0)
+											.getFileUrl(),
 							viewHolder.contentImage,
 							MyApplication.getInstance().getOptions(
 									R.drawable.bg_pic_loading),
@@ -327,8 +328,8 @@ public class AIContentAdapter extends BaseContentAdapter<QiangYu> {
 		String title = "这里好多美丽的风景";
 		String comment = "来领略最美的风景吧";
 		String img = null;
-		if (qy.getContentfigureurl() != null) {
-			img = qy.getContentfigureurl(). get(0).getFileUrl();
+		if (qy.getContentfigureurl().size() != 0) {
+			img = qy.getContentfigureurl().get(0).getFileUrl();
 		} else {
 			img = "http://www.codenow.cn/appwebsite/website/yyquan/uploads/53af6851d5d72.png";
 		}

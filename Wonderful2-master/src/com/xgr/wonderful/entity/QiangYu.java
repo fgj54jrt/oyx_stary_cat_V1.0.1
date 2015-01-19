@@ -1,6 +1,7 @@
 package com.xgr.wonderful.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.amap.api.location.core.GeoPoint;
@@ -20,7 +21,7 @@ public class QiangYu extends BmobObject implements Serializable{
 	
 	private User author;
 	private String content;
-	private List<BmobFile> Contentfigureurl;
+	private List<BmobFile> Contentfigureurl = new ArrayList<BmobFile>();
 	private int love;
 	private int hate;
 	private int share;
