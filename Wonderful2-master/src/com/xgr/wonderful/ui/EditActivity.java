@@ -100,14 +100,15 @@ public class EditActivity extends BasePageActivity implements OnClickListener,
 	@Override
 	protected void setLayoutView() {
 		// TODO Auto-generated method stub
-		setContentView(R.layout.activity_edit);
-		initLocation();
 		new Thread(new Runnable() {
             @Override
             public void run() {
                 FaceConversionUtil.getInstace().getFileText(getApplication());
             }
         }).start();
+		setContentView(R.layout.activity_edit);
+		initLocation();
+		
 	}
 
 	/**
